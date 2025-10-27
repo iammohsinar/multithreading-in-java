@@ -97,7 +97,7 @@ public class BankAccountSimulation {
     cashDeposit.start();
     onlinePurchase.start();
 
-    // main should wait until all thread completed its work
+    // main should wait until all thread completed their work
     // ------ deposit
     youtubeIncome.join();
     onlinePurchase.join();
