@@ -53,15 +53,14 @@ NEW → RUNNABLE → RUNNING → BLOCKED → TERMINATED
 
 ## In ```miniproject``` package:
 
-- Parallel Sum Calculator use of ```ExecutorService```,```Callable```, ```Future```
-- Bank Account Simulation use of
-  - `Lock`, `Reentrantlock`,`AtomicInteger`
-  - Multiple threads deposit and withdraw safely. 
-  - To check the difference in **output** uncomment the code from line `25` to `29`
-  - ```
-    //        try {
-    //            Thread.sleep(100);
-    //        } catch (InterruptedException e) {
-    //            e.printStackTrace();
-    //        }
-    ```
+1. **Parallel Sum Calculator** use of ```ExecutorService```,```Callable```, ```Future```
+2. **Bank Account Simulation** use of `Lock`, `Reentrantlock`,`AtomicInteger`
+   - Multiple threads deposit and withdraw safely. 
+   - To check the difference in **output** uncomment the code from line `25` to `29`
+   - ```
+     //        try {
+     //            Thread.sleep(100);
+     //        } catch (InterruptedException e) {
+     //            e.printStackTrace();
+     //        }
+     ```
