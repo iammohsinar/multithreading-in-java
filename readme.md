@@ -49,7 +49,28 @@ NEW → RUNNABLE → RUNNING → BLOCKED → TERMINATED
 
 - ```sleep(ms)```
   - Actually pauses for a fixed time.
- 
+
+## The ```synchronized``` & ```reentrantlock```: 
+
+There are mainly two types of lock in java `Intrinsic` and `explicit` lock. Every java object including the object class has uses the `intrinsic` lock
+- When synchronized keyword is being used the java primarly use the intrinsic lock.
+  - the synchronized uses `intrinsic` lock on object to acquire the lock. The `thread` has to wait indefinitely for its turn.  
+- We (developer) has not control over it to `unlock` or `timeout`, it that scenario we have `explicit` lock.
+- In Java we have `Lock` interface and `ReentrantLock` implementor.
+- In `Lock` we have multiple methods but mainly I used `lock()`, `unlock()`, `trylock()`, `lockInterruptibly()` [trylock(long time, TimeUnit unit)](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock-long-java.util.concurrent.TimeUnit-)
+
+### `explicit` (Lock) and `Intrinsic` (Synchronized)
+
+- The thread who acquires the lock is owner of the lock, the same thread can acquire as many locks as it can, however it has to unlock those same locks as many times it has acquired.
+- Internally the initial value is `0` when you use the `lock()` it increment by `1` if the same thread acquire `3` locks  it has to `unlock()` 3 times to release the complete lock.  if you miss any `unlock()` method, then program will hang up forever try program `Lock1_Example` and comment the line `// comment B method unlock method`, but that's not in synchronized block check example `SynchronizedBlock2_Example` once thread enters in synchronized block it will complete the entire block / method body because we do not have control over it, that's why it is called intrinsic lock.  
+
+### `tryLock()` An immediate timeout:
+
+- If there are two threads thread-1 and thread-2. When thread-1 acquire the lock and thread-2 will try for the lock but thread-1 already has it, so the `tryLock()` will return `false` and thread-2 will not wait but immediately stop. try example `Lock3_TryLockExample`, With `synchronized` thread-2 always waits until the lock is released, no option to skip or timeout.
+
+### `tryLock(long time, TimeUnit unit)` Wait for given time:
+
+- The thread-2 will wait for given time, if it gets lock then it will complete the task otherwise, it will be stopped. try example `Lock4_TryLockTimeoutExample`
 
 ## In ```miniproject``` package:
 
