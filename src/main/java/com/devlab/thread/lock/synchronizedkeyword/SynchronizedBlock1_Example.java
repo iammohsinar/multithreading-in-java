@@ -6,22 +6,22 @@ public class SynchronizedBlock1_Example {
 
   public void methodA() {
     synchronized (object) {
-        System.out.println(Thread.currentThread().getName() + " inside method A");
-        try {
-            Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
-        } catch (InterruptedException e) {
-        }
-        System.out.println(Thread.currentThread().getName() + " method A acquired the lock");
-        methodB();
+      System.out.println(Thread.currentThread().getName() + " inside method A");
+      try {
+        Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
+      } catch (InterruptedException e) {
+      }
+      System.out.println(Thread.currentThread().getName() + " method A acquired the lock");
+      methodB();
     }
   }
 
   public void methodB() {
-      synchronized (object) {
+    synchronized (object) {
       System.out.println(Thread.currentThread().getName() + " inside method B");
       System.out.println(Thread.currentThread().getName() + " method B acquired the lock");
       methodC();
-     }
+    }
   }
 
   public void methodC() {

@@ -18,8 +18,7 @@ public class Lock2_WithoutUnlockExample {
 
   public void methodB() {
     System.out.println(Thread.currentThread().getName() + " inside method B");
-   }
-
+  }
 
   public static void main(String[] args) throws InterruptedException {
     Lock2_WithoutUnlockExample e = new Lock2_WithoutUnlockExample();
@@ -28,7 +27,7 @@ public class Lock2_WithoutUnlockExample {
     Thread t2 = new Thread(() -> e.methodA(), "Thread 2");
 
     t1.start();
-          Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
+    Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
 
     t2.start();
     t1.join();

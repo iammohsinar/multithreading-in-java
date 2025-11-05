@@ -17,8 +17,7 @@ public class SynchronizedBlock2_Example {
 
   public void methodB() {
     System.out.println(Thread.currentThread().getName() + " inside method B");
-   }
-
+  }
 
   public static void main(String[] args) throws InterruptedException {
     SynchronizedBlock2_Example e = new SynchronizedBlock2_Example();
@@ -27,7 +26,7 @@ public class SynchronizedBlock2_Example {
     Thread t2 = new Thread(() -> e.methodA(), "Thread 2");
 
     t1.start();
-          Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
+    Thread.sleep(1000); // let the thread 1 to acquire the lock wait for 1000 to start thread 2;
 
     t2.start();
     t1.join();
